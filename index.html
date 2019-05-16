@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>MyPortFolio</title>
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <!-- Bootstrap CSS 今回は使いません -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      /* テンプレートの読み込み */
+      $(function(){
+        $("#header").load("nav.html");
+        $("#footer").load("footer.html");
+      });
+    </script>
+  </head>
+  <body>
+  <!-- ナビゲーションバー -->
+   <div id="header"></div>
+  <!-- 本文 -->
+    <h1>ここに本当だったらポートフォリオがかっこよく一覧になっていたりいなかったり
+    ラジバンダリしているはず</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-lg-8">
+        </div>
+      </div>
+    </div>
+    <!-- フッター -->
+    <div id="footer"></div>
+  </body>
+</html>
