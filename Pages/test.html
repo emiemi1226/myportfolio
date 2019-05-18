@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>MyPortFolio</title>
-    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="../css/app.css">
     <!-- Bootstrap CSS 今回は使いません -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery -->
@@ -14,16 +14,13 @@
     <script type="text/javascript">
       /* テンプレートの読み込み */
       $(function(){
-        $("#header").load("template/nav.html");
-        $("#footer").load("template/footer.html");
+        $("#header").load("../template/nav.html");
+        $("#footer").load("../template/footer.html");
       });
     </script>
   </head>
 
   <style>
-    body {
-      background-color: #e9e9e9;
-    }
 
     article {
       padding: 20px;
@@ -37,11 +34,6 @@
       width: 80%;
       height: 100%;
       margin: auto;
-    }
-
-    #header {
-      position: sticky;
-      top: 0;
     }
 
   </style>
