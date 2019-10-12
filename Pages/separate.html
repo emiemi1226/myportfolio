@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<h2>シラス魚群をKnot数で分割する</h2>
+</div>
+<body>
+<form action="../php/separate.php" method="post" enctype="multipart/form-data">
+    <h1>シラス魚群のCSVファイル上げてこいやー！！！！</h1>
+    <br />
+    <h5>*結果が出るまでちょろっと時間かかりやす</h5>
+    <!--下記の「name」がseparate.phpにおいて画像の名前を所得するのに必要になる-->
+    <input type="number" name="knot" value="2">Knotで分割<br />
+    <input type="number" name="min_minute" value="5">分以下のファイルは削除<br />
+    <input type="file" name="upfile" size="30" value=""/><br/>
+    <input type="submit" value="分割しろや！！"/><br/>
+</form>
+</body>
+</html>

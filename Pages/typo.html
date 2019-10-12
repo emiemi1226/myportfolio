@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>MyPortFolio</title>
+    <link rel="stylesheet" type="text/css" href="../css/app.css">
+    <!-- Bootstrap CSS 今回は使いません -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      /* テンプレートの読み込み */
+      $(function(){
+        $("#header").load("../template/nav.html");
+        $("#footer").load("../template/footer.html");
+      });
+    </script>
+  </head>
+
+  <style>
+
+    article {
+      padding: 20px;
+      margin: 20px;
+      border: 1px solid #e9e9e9;
+      background-color: white;
+
+    }
+
+    #port-list {
+      width: 80%;
+      height: 100%;
+      margin: auto;
+    }
+
+  </style>
+
+  <body>
+  <!-- ナビゲーションバー -->
+   <div id="header"></div>
+  <!-- 本文 -->
+  <div id="port-list">
+    <h1>タイポグリセミア!</h1>
+    <form method="post" action="../php/typo.php">
+      <input type="textbox"/>
+      <input type="submit" name="s" value="ごちゃる!">
+    </form>
+
+
+    <!-- フッター -->
+    <div id="footer"></div>
+  </body>
+</html>
