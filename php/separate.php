@@ -13,6 +13,12 @@ foreach(glob("./input/*") as $file_name){
     exec($command);
 }
 
+// 既存のtmpの中身を削除
+$fpath_array = glob('./tmp/*');
+foreach ($fpath_array as $filename) {
+    unlink($filename);
+}
+
 // inputにファイルをおく
 $filedir = "./input/";
 move_uploaded_file($_FILES["upfile"]["tmp_name"], $filedir.$_FILES["upfile"]["name"]);
@@ -47,24 +53,22 @@ if ($result !== true) {
 //処理制限時間を外す
 set_time_limit(0);
 
-//パス
-$fpath_array = glob('./tmp/*');
-
 //Zip追加処理
 foreach ($fpath_array as $filename) {
     var_dump($filename);
     //取得ファイルをZipに追加
-    $zip->addFile("./tmp/".$filename);
+    $zip->addFile($filename, basename($filename));
 }
 
 $zip->close();
 
 // ストリームに出力
-header('Content-Type: application/zip; name="' . $zipFileName . '"');
 header('Content-Disposition: attachment; filename="' . $zipFileName . '"');
-header('Content-Length: '.filesize($zipTmpDir.$zipFileName));
- 
+header('Content-Type: application/octet-stream');
+header('Content-Transfer-Encoding: binary');
+readfile($zipTmpDir.$zipFileName);
+
 // 一時ファイルを削除しておく
-// unlink($zipTmpDir.$zipFileName);
+unlink($zipTmpDir.$zipFileName);
 
 ?>

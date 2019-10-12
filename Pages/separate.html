@@ -11,9 +11,20 @@
     <h5>*結果が出るまでちょろっと時間かかりやす</h5>
     <!--下記の「name」がseparate.phpにおいて画像の名前を所得するのに必要になる-->
     <input type="number" name="knot" value="2">Knotで分割<br />
-    <input type="number" name="min_minute" value="5">分以下のファイルは削除<br />
+    <input type="number" name="min_minute" value="500">以下の継続だったファイルは削除<br />
+    ※例：5分 → 500<br>
     <input type="file" name="upfile" size="30" value=""/><br/>
     <input type="submit" value="分割しろや！！"/><br/>
+    <h5>使い方</h5>
+    <ol>
+        <li>以下の形式のCSVファイルを「ファイルを選択」からアップロードする。<br/>
+         ・先頭列がカラム名で、カラムは下記の順番<br/>
+         ・日付,時刻,緯度,経度,船速(m/s),シラス魚群断面積...
+        </li>
+        <li>Knot数とKnotを何分間継続しなかった場合に削除するかを入力。
+        ※半角の数値を入力</li>
+        <li>「分割しろや！」をクリックすると、指定条件で分割したzipファイルがダウンロードされる。</li>
+    </ol>
 </form>
 </body>
 </html>

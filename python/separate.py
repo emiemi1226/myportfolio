@@ -142,5 +142,6 @@ if endTime - startTime < st_minute:
 # シラス魚群断面積の和を緯度、経度平均を求める
 else:
 	colcOutputFile(outputFile % fileNum)
+
 print("正常終了")
 # 処理終了
