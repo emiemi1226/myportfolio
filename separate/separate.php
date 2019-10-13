@@ -1,6 +1,3 @@
-
-
-
 <?php
 #変数の定義
 #関数の定義
@@ -28,7 +25,7 @@ $knot = $_POST['knot'];
 $min_minute = $_POST['min_minute'];
 
 // 実行するコマンド
-$cmdPath = "python /home/yara-shimizu/www/wp/portfolio/python/separate.py ${knot} ${min_minute} 2>&1";
+$cmdPath = "python /home/yara-shimizu/www/wp/portfolio/separate/separate.py ${knot} ${min_minute} 2>&1";
 
 // 実行
 exec($cmdPath);
@@ -38,10 +35,10 @@ exec($cmdPath);
 $zip = new ZipArchive();
 
 //Zipファイル名指定
-$zipFileName = 'result.zip';
+$zipFileName = "result.zip";
 
 //Zipファイル一時保存ディレクトリ取得
-$zipTmpDir = './output/';
+$zipTmpDir = "./output/";
 
 //Zipファイルオープン
 $result = $zip->open($zipTmpDir.$zipFileName, ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE);
@@ -55,18 +52,21 @@ set_time_limit(0);
 
 //Zip追加処理
 foreach ($fpath_array as $filename) {
-    var_dump($filename);
     //取得ファイルをZipに追加
-    $zip->addFile($filename, basename($filename));
+    $zip->addFromString(basename($filename), file_get_contents($filename));
 }
 
 $zip->close();
 
 // ストリームに出力
+
+//-- Content-Type
+header('Content-Type: application/zip');
 header('Content-Disposition: attachment; filename="' . $zipFileName . '"');
-header('Content-Type: application/octet-stream');
+//header('X-Content-Type-Options: nosniff');
 header('Content-Transfer-Encoding: binary');
-readfile($zipTmpDir.$zipFileName);
+header('Connection: close');
+echo file_get_contents($zipTmpDir.$zipFileName);
 
 // 一時ファイルを削除しておく
 unlink($zipTmpDir.$zipFileName);

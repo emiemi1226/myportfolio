@@ -56,7 +56,7 @@ st_knot = args[1]
 st_minute = int(args[2])
 print("基準値2ノットで分割します")
 
-files = glob.glob("../php/input/*")
+files = glob.glob("./input/*")
 
 # ファイルごとに処理 基本１ファイルだけの処理
 for filePath in files:
@@ -67,7 +67,7 @@ for filePath in files:
 	fileName, ext = os.path.splitext(outputTmp)
 
 	# ファイルの定形を定義
-	outputFile = "../php/tmp/" + str(fileName) + "_%s回目.csv"
+	outputFile = "./tmp/" + str(fileName) + "_%s回目.csv"
 
 	# すでにファイルが作成されている場合は削除
 	if os.path.exists(outputFile % fileNum):

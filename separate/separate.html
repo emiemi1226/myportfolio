@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>MyPortFolio</title>
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <!-- Bootstrap CSS 今回は使いません -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      /* テンプレートの読み込み */
+      $(function(){
+        $("#header").load("../template/nav.html");
+        $("#footer").load("../template/footer.html");
+      });
+    </script>
+  </head>
+  <style>
+      body {
+      background-color: #e9e9e9;
+    }
+  </style>
+  <body>
+      <!-- ナビゲーションバー -->
+  <div id="header"></div>
+    <div style="padding: 20px;">
+      <div >
+        <h1>シラス魚群のデータをKnot数、時間で分割する</h1>
+        <form action="./separate.php" method="post" enctype="multipart/form-data">
+          <h2>シラス魚群のCSVファイル上げてこいやー！！！！</h2>
+          <br />
+          <h5>*結果が出るまでちょろっと時間かかりやす</h5>
+          <!--下記の「name」がseparate.phpにおいて画像の名前を所得するのに必要になる-->
+          <input type="number" name="knot" value="2">Knotで分割<br />
+          <input type="number" name="min_minute" value="500">以下の継続だったファイルは削除<br />
+          ※例：5分 → 500<br>
+          <input type="file" name="upfile" size="30" value=""/><br/>
+          <input type="submit" value="分割しろや！！"/><br/>
+          <h5>使い方</h5>
+          <ol>
+              <li>以下の形式のCSVファイルを「ファイルを選択」からアップロードする。<br/>
+               ・先頭列がカラム名で、カラムは下記の順番<br/>
+               ・日付,時刻,緯度,経度,船速(m/s),シラス魚群断面積...
+              </li>
+              <li>Knot数とKnotを何分間継続しなかった場合に削除するかを入力。
+              ※半角の数値を入力</li>
+              <li>「分割しろや！」をクリックすると、指定条件で分割したzipファイルがダウンロードされる。</li>
+          </ol>
+        </form>
+      </div>
+    </div>
+    <!-- フッター -->
+    <div id="footer"></div>
+  </body>
+</html>
